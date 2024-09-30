@@ -37,9 +37,6 @@ router.get("/", (req, res) => {
     return res.json(films);
   }
   const minDuration = Number(req.query["minimum-duration"]);
-  if (isNaN(minDuration) || minDuration <= 0) {
-    return res.sendStatus(400);
-  }
   const filteredFilms = films.filter((film) => {
     return film.duration >= minDuration;
   });
@@ -59,9 +56,6 @@ router.post("/", (req, res) => {
   const { title, director, duration, description, imageUrl } = req.body;
   if (!title || !director || !duration || !description || !imageUrl) {
     return res.sendStatus(400);
-  }
-  if (films.forEach((film)) {
-    return res.sendStatus(409);
   }
 
   const nextId =

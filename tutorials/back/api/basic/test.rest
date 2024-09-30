@@ -6,7 +6,7 @@ GET http://localhost:3000/drinks
 GET {{baseUrl}}/drinks
 
 ### Read a single drink
-GET {{baseUrl}}/drinks/3
+GET {{baseUrl}}/drinks/2
 
 ### Read all drinks cheaper or equal to 3 €
 GET {{baseUrl}}/drinks/?budget-max=3
@@ -34,3 +34,5 @@ Content-Type: application/json
 }
 
 
+### Delete a drink
+DELETE {{baseUrl}}/drinks/2

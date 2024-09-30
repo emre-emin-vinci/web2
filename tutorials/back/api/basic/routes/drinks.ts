@@ -88,5 +88,14 @@ router.post("/", (req, res) => {
   drinks.push(newDrink);
   return res.json(newDrink);
 });
+router.delete("/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const index = drinks.findIndex((drink) => drink.id === id);
+  if (index === -1) {
+    return res.sendStatus(404);
+  }
+  const deletedElements = drinks.splice(index, 1); // splice() returns an array of the deleted elements
+  return res.json(deletedElements[0]);
+});
 
 export default router;
