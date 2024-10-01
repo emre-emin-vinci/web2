@@ -1,0 +1,47 @@
+### Read all films
+GET http://localhost:3000/films
+
+### Read all films with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/films
+
+### Read a single drink
+GET {{baseUrl}}/films/3
+
+### Read all films cheaper or equal to 3 €
+GET {{baseUrl}}/films/?minimum-duration=145
+
+### Create a drink
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+    "title" : "Joker",
+    "director" : "Todd Phillips",
+    "imageUrl" : "https://www.imdb.com/title/tt7286456/mediaviewer/rm4286871041/",
+    "duration" : 122,
+    "budget" : 55000000,
+
+}
+
+
+### Delete a film
+DELETE {{baseUrl}}/films/2
+
+### Update the drink identified by 3
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+    "title":"Magic Green 2"
+}
+
+### Update the drink identified by 5
+PUT {{baseUrl}}/films/5
+Content-Type: application/json
+
+{
+    "title":"Citronnade",
+    "director":"Todd Phillips",
+    "duration": 122
+}
