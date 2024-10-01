@@ -118,7 +118,7 @@ router.patch("/:id", (req, res) => {
     ("budget" in body && (typeof body.budget !== "number" || body.budget <= 0))
     ){
       return res.sendStatus(400);}
-  const {title, director, duration, description, imageUrl, budget} = body as NewFilm;
+  const {title, director, duration, description, imageUrl, budget} : Partial<NewFilm> = body;
   if  (title)
     film.title = title;
   if (director)

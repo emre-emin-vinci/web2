@@ -29,7 +29,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/films/2
 
 ### Update the drink identified by 3
-PATCH {{baseUrl}}/films/3
+PATCH {{baseUrl}}/films/2
 Content-Type: application/json
 
 {
