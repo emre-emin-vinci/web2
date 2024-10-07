@@ -1,0 +1,53 @@
+### Read all films with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/films
+
+### Read a single film
+GET {{baseUrl}}/films/3
+
+### Read all films longer than 2 hours
+GET {{baseUrl}}/films/?minimum-duration=150
+
+### Create a film
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+    "title":"The Lord of the Rings: The Fellowship of the Ring",
+    "director":"Peter Jackson",
+    "duration":178,
+    "budget":93000000, 
+    "description":"A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+    "imageUrl":"https://plus.unsplash.com/premium_photo-1668771899398-1cdd763f745e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"   
+}
+
+### Search for films starting with
+## I don't have the search functionality implemented yet (it is the exercice 1.4 which was optional)
+GET {{baseUrl}}/films/search?title=The
+
+### Delete a film
+DELETE {{baseUrl}}/films/2
+
+### Update a film
+PATCH  {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+    "title":"The Lord of the Rings: The Fellowship of the Ring",
+    "imageUrl":"https://plus.unsplash.com/premium_photo-1668771899398-1cdd763f745e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "duration":178,
+    "director":"Peter Jackson",
+    "budget":45000000
+}
+
+### Update a film with PUT
+PUT  {{baseUrl}}/films/4
+Content-Type: application/json
+
+{
+    "title":"The Lord of the Rings: The Fellowship of the Ring",
+    "imageUrl":"https://plus.unsplash.com/premium_photo-1668771899398-1cdd763f745e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "duration":178,
+    "director":"Peter Jackson",
+    "budget":45000000
+}

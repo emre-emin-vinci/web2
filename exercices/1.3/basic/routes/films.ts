@@ -60,7 +60,7 @@ router.post("/", (req, res) => {
   if (!title || !director || !duration || !description || !imageUrl) {
     return res.sendStatus(400);
   }
-  if (films.forEach((film)) {
+  if (films.some((film) => film.title === title)) {
     return res.sendStatus(409);
   }
 
