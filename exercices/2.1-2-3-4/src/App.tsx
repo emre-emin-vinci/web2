@@ -10,55 +10,55 @@ interface MovieProps{
 const Movie = ({title, director}: MovieProps) => <li><strong>{title}</strong> - Réalisateur : {director}</li>;
 interface CinemaProps{
   name: string;
-  movie1Title: string;
-  movie1Director: string;
-  movie2Title: string;
-  movie2Director: string;
+  movies : MovieProps[];
 }
-const Cinema = (props : CinemaProps) => {
+const Cinema = ({name, movies} : CinemaProps) => {
   return (
     <div>
-      <h2>{props.name}</h2>
+      <h2>{name}</h2>
       <ul>
-        <Movie title={props.movie1Title} director={props.movie1Director} />
-        {props.movie2Title && <Movie title={props.movie2Title} director={props.movie2Director} />}
+        {movies.map((movie, index) => (
+          <Movie key={index} title={movie.title} director={movie.director} />
+        ))}
       </ul>
     </div>
   );
 };
 const App = () => {
   const pageTitle = "Informations sur les films dans les cinémas";
+
   const cinema1Name = "UGC DeBrouckère";
-  const cinema1Movie1Title = "Film 1 - DeBrouckère";
-  const cinema1Movie1Director = "Director A";
-  const cinema1Movie2Title = "Film 2 - DeBrouckère";
-  const cinema1Movie2Director = "Director B";
+
+  const moviesCinema1 = [{
+    title: "HAIKYU-THE DUMPSTER BATTLE",
+    director: "Susumu Mitsunaka",
+  },
+  
+    {title: "GOODBYE JULIA ",
+    director: "Mohamed Kordofani",
+    },];
+
   const cinema2Name = "UGC Toison d'Or";
-  const cinema2Movie1Title = "Film 1 - Toison d'Or";
-  const cinema2Movie1Director = "Director C";
-  const cinema2Movie2Title = "Film 2 - Toison d'Or";
-  const cinema2Movie2Director = "Director D";
+  const moviesCinema2 = [{
+    title: "THE WATCHERS",
+    director: "Ishana Night Shyamalan",
+  },
+  {
+    title: "BAD BOYS: RIDE OR DIE",
+    director: "Adil El Arbi, Bilall Fallah",
+  },];
+
 
   return (
     <div>
-    <PageTitle title={pageTitle} />
+      <PageTitle title={pageTitle} />
 
-    <Cinema
-      name={cinema1Name}
-      movie1Title={cinema1Movie1Title}
-      movie1Director={cinema1Movie1Director}
-      movie2Title={cinema1Movie2Title}
-      movie2Director={cinema1Movie2Director}
-    />
-    <Cinema
-      name={cinema2Name}
-      movie1Title={cinema2Movie1Title}
-      movie1Director={cinema2Movie1Director}
-      movie2Title={cinema2Movie2Title}
-      movie2Director={cinema2Movie2Director}
-    />
+      <Cinema name={cinema1Name} movies={moviesCinema1} />
+
+      <Cinema name={cinema2Name} movies={moviesCinema2} />
     </div>
   );
 };
+
 
 export default App;
